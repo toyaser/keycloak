@@ -196,7 +196,7 @@ public class OIDCLoginProtocolService {
 
         int i = 0;
         for (RsaKeyMetadata k : publicKeys) {
-            keys[i++] = JWKBuilder.create().kid(k.getKid()).rs256(k.getPublicKey());
+            keys[i++] = JWKBuilder.create().kid(k.getKid()).rs256(k.getPublicKey(), k.getCertificate());
         }
 
         JSONWebKeySet keySet = new JSONWebKeySet();
